@@ -1,7 +1,6 @@
 import React, { useState } from "react";
-import SearchBar from "./components/SearchBar";
+import SearchPage from "./components/SearchPage";
 import Result from "./components/Result";
-import History from "./components/History";
 import Styled from "styled-components";
 import { getUserData, getUserRepo } from "./lib/api";
 import { BrowserRouter as Router } from "react-router-dom";
@@ -36,8 +35,7 @@ function App() {
   return (
     <MainWrap>
       <Router>
-        <SearchBar getUser={getUser} />
-        <History />
+        <SearchPage getUser={getUser} />
         <Result userData={userData} />
       </Router>
     </MainWrap>
