@@ -3,7 +3,7 @@ import Styled from "styled-components";
 
 const Input = Styled.input`
     margin: 1rem;
-    width: 370px;
+    width: 320px;
     height: 24px;
 `;
 
@@ -22,7 +22,12 @@ const SearchBar = ({ getUser }) => {
   };
   return (
     <form onSubmit={handleSubmit}>
-      <Input type='text' placeholder='GitHub ID를 입력하세요' value={userName} onChange={handleChange} />
+      <Input
+        type='text'
+        placeholder='GitHub ID를 입력하세요'
+        value={userName}
+        onChange={handleChange}
+      />
     </form>
   );
 };

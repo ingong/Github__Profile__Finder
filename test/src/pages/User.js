@@ -1,5 +1,6 @@
 import React from "react";
 import Styled from "styled-components";
+import { useHistory } from "react-router-dom";
 
 const CardWrap = Styled.div`
   .result_card {
@@ -7,7 +8,8 @@ const CardWrap = Styled.div`
     flex-direction: column;
     align-items: center;
     color: white;
-    width: 390px;
+    width: 35vw;
+    height: 50vh;
     background-color: #231E39;
     border-radius: 10px;
     overflow: hidden;
@@ -88,8 +90,13 @@ const CardWrap = Styled.div`
 `;
 
 const User = ({ data }) => {
+  let history = useHistory();
+  const handleClick = () => {
+    history.push("/");
+  };
   return (
     <CardWrap>
+      <button onClick={handleClick}>Go Home</button>
       <div className='result_card'>
         <img
           style={{ width: "100px", height: "100px" }}
@@ -110,3 +117,8 @@ const User = ({ data }) => {
 };
 
 export default User;
+// ✅ 화면 좌측 또는 우측에 검색 History 만들고, 아이디를 클릭하면 해당 유저의 카드 다시 보여주기
+
+// - LocalStorage 이용하기
+// - 같은 ID 여러 번 검색하면 가장 마지막에 검색한 기록만 남기기
+// - History 삭제 기능 구현은 선택입니당!

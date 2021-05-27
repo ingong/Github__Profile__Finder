@@ -4,10 +4,11 @@ import Repo from "../pages/Repo";
 import Styled from "styled-components";
 
 const Wrapper = Styled.div`
+  width: 100vw;
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justfiy-content: center;
+  align-items: flex-start;
+  justify-content: space-around;
+  margin: 2rem;
 `;
 const ResultCard = ({ data, repo }) => {
   return (

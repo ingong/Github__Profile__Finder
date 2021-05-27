@@ -1,5 +1,6 @@
 import React from "react";
 import ResultCard from "./ResultCard";
+import { withRouter } from "react-router-dom";
 
 const Result = ({ userData }) => {
   const { status, data, repo } = userData;
@@ -20,4 +21,4 @@ const Result = ({ userData }) => {
   }
 };
 
-export default Result;
+export default withRouter(Result);

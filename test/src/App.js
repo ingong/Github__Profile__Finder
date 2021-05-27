@@ -1,15 +1,16 @@
 import React, { useState } from "react";
 import SearchBar from "./components/SearchBar";
 import Result from "./components/Result";
+import History from "./components/History";
 import Styled from "styled-components";
 import { getUserData, getUserRepo } from "./lib/api";
+import { BrowserRouter as Router } from "react-router-dom";
 
 const MainWrap = Styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  height: 100vh;
+  justify-content: space-between;
 `;
 
 function App() {
@@ -34,8 +35,11 @@ function App() {
 
   return (
     <MainWrap>
-      <SearchBar getUser={getUser} />
-      <Result userData={userData} />
+      <Router>
+        <SearchBar getUser={getUser} />
+        <History />
+        <Result userData={userData} />
+      </Router>
     </MainWrap>
   );
 }
