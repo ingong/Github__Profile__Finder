@@ -1,6 +1,5 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import Styled from "styled-components";
-import History from "./History";
 
 const Input = Styled.input`
     margin: 1rem;
@@ -10,32 +9,6 @@ const Input = Styled.input`
 
 const SearchPage = ({ getUser }) => {
   const [userName, setUserName] = useState("");
-  const [keywords, setKeywords] = useState(
-    JSON.parse(localStorage.getItem("keywords") || "[]")
-  );
-  useEffect(() => {
-    localStorage.setItem("keywords", JSON.stringify(keywords));
-  }, [keywords]);
-
-  const handleAddKeyword = (text) => {
-    console.log("text", text);
-    const newKeyword = {
-      id: Date.now(),
-      text: text,
-    };
-    setKeywords([...keywords, newKeyword]);
-  };
-
-  const handleRemoveKeyword = (id) => {
-    const nextKeyword = keywords.filter((thisKeyword) => {
-      return thisKeyword.id != id;
-    });
-    setKeywords(nextKeyword);
-  };
-
-  const handleClearKeywords = () => {
-    setKeywords([]);
-  };
 
   const handleChange = (event) => {
     setUserName(event.target.value);
@@ -57,11 +30,6 @@ const SearchPage = ({ getUser }) => {
           onChange={handleChange}
         />
       </form>
-      <History
-        keywrods={keywords}
-        onClearKeywords={handleClearKeywords}
-        onRemoveKeyword={handleRemoveKeyword}
-      />
     </>
   );
 };

@@ -1,6 +1,5 @@
-import React from "react";
+import React, { useState } from "react";
 import Styled from "styled-components";
-import { useHistory } from "react-router-dom";
 
 const CardWrap = Styled.div`
   .result_card {
@@ -89,14 +88,13 @@ const CardWrap = Styled.div`
   }
 `;
 
-const User = ({ data }) => {
-  let history = useHistory();
-  const handleClick = () => {
-    history.push("/");
+const User = ({ data, getUser }) => {
+  const handleChange = () => {
+    getUser(null);
   };
   return (
     <CardWrap>
-      <button onClick={handleClick}>Go Home</button>
+      <button onClick={handleChange}>Go Home</button>
       <div className='result_card'>
         <img
           style={{ width: "100px", height: "100px" }}

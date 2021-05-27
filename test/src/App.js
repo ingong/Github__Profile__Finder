@@ -36,7 +36,7 @@ function App() {
     <MainWrap>
       <Router>
         <SearchPage getUser={getUser} />
-        <Result userData={userData} />
+        <Result getUser={getUser} userData={userData} />
       </Router>
     </MainWrap>
   );

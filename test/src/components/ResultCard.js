@@ -10,12 +10,12 @@ const Wrapper = Styled.div`
   justify-content: space-around;
   margin: 2rem;
 `;
-const ResultCard = ({ data, repo }) => {
+const ResultCard = ({ data, repo, getUser }) => {
   return (
     data &&
     repo && (
       <Wrapper>
-        <User data={data} />
+        <User data={data} getUser={getUser} />
         <Repo repo={repo} />
       </Wrapper>
     )
